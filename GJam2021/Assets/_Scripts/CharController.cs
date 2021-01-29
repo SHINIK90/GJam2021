@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class CharController : MonoBehaviour
 {
-    public float movementSpeed = 5f;
+    public float movementSpeed = 20f;
     public Transform body;
     // Start is called before the first frame update
     void Start(){
