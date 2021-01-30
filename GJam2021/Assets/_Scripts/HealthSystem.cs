@@ -18,7 +18,7 @@ public class HealthSystem : MonoBehaviour
     void Update()
     {
         HealthBar.fillAmount = CurrentHealth / MaxHealth;
-        if (Input.GetKeyDown(KeyCode.A)) {
+        if (Input.GetKeyDown(KeyCode.X)) {
             RecibirDaño(10);
         }
         if (CurrentHealth >= MaxHealth) {
