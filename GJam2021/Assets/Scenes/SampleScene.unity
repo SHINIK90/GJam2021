@@ -1534,6 +1534,7 @@ GameObject:
   - component: {fileID: 1168628714}
   - component: {fileID: 1168628716}
   - component: {fileID: 1168628717}
+  - component: {fileID: 1168628718}
   m_Layer: 0
   m_Name: Enemy
   m_TagString: Enemigo
@@ -1655,8 +1656,9 @@ MonoBehaviour:
   minDistance: 30
   attackDistance: 5
   damage: 10
-  Origin: {x: 0, y: 0}
+  Origin: {x: 0, y: 0, z: 0}
   timeWithoutDamage: 1
+  stoppedFollow: 0
 --- !u!54 &1168628717
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -1673,6 +1675,25 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 108
   m_CollisionDetection: 0
+--- !u!95 &1168628718
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1168628711}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 551691d2dbcca4f2f9b0a69e51be5306, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &1288982480
 GameObject:
   m_ObjectHideFlags: 0
