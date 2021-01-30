@@ -25,10 +25,19 @@ public class HealthSystem : MonoBehaviour
             CurrentHealth = MaxHealth;
         }
         if (CurrentHealth <= 0) {
-            //dead
+            die();
         }
     }
-    void RecibirDaño(float Damage) {
+    public void RecibirDaño(float Damage) {
         CurrentHealth -= Damage;
+    }
+    void die() {
+        if (tag == "Player") {
+
+        }
+        else
+        {
+            Destroy(gameObject);
+        }
     }
 }

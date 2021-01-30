@@ -21,7 +21,6 @@ public class CharController : MonoBehaviour
         body = transform.Find("Body");
         rigidbody = transform.GetComponent<Rigidbody>();
         jumpForce = 10f;
-        movementSpeed = 5f;
     }
 
     // Update is called once per frame

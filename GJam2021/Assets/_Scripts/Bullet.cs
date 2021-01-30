@@ -7,6 +7,7 @@ public class Bullet : MonoBehaviour
     public float speedX;
     float speedY = 0;
     Rigidbody rb;
+    public float damage = 10;
     // Start is called before the first frame update
     void Start()
     {
@@ -17,6 +18,14 @@ public class Bullet : MonoBehaviour
     void Update()
     {
         rb.velocity = new Vector2(speedX, speedY);
-        Destroy(gameObject, 4f);
+        Destroy(gameObject, 1.5f);
+    }
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.tag == "Enemigo")
+        {
+            other.GetComponent<HealthSystem>().RecibirDaño(damage);
+            Destroy(gameObject);
+        }
     }
 }
