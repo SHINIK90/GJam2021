@@ -4,30 +4,55 @@ using UnityEngine;
 
 public class Enemigo1 : MonoBehaviour
 {
+    public GameObject player;
     public Transform target;
     public float chaseSpeed = 10f;
     public float returnSpeed = 5f;
     public float minDistance = 1f;
+    public float attackDistance = 1f;
+    public float damage = 10f;
     private float range;
-    public Vector2 Origin;
+    public Vector3 Origin;
+    private float time=0;
+    public float timeWithoutDamage = 2f;
+    Vector3 temp;
 
     private void Start()
     {
         Origin = transform.position;
+        time = timeWithoutDamage;
     }
     void Update()
     {
+        
+        Debug.Log(time);
         range = Vector2.Distance(transform.position, target.position);
-
         if (range < minDistance)
         {
-            Debug.Log(range);
+            temp = new Vector3(target.transform.position.x, transform.position.y, target.transform.position.z);
+            //transform.Translate(Vector2.MoveTowards(transform.position, target.position, range)*chaseSpeed*Time.deltaTime);
+            transform.position = Vector3.MoveTowards(transform.position, temp, chaseSpeed * Time.deltaTime);
+            if (range < attackDistance)
+            {
 
-            transform.position = Vector2.MoveTowards(transform.position, target.position, chaseSpeed * Time.deltaTime);
+                if (time < timeWithoutDamage) {
+                    time += Time.deltaTime;
+                }
+                else
+                {
+                    Debug.Log("DAMAGE");
+                    player.GetComponent<HealthSystem>().RecibirDaño(damage);
+                    //target.GetComponent<HealthSystem>().RecibirDaño(damage);
+                    time = 0;
+                }
+                
+                
+            }
         }
         else
         {
             transform.position = Vector2.MoveTowards(transform.position, Origin, returnSpeed * Time.deltaTime);
         }
+
     }
 }
