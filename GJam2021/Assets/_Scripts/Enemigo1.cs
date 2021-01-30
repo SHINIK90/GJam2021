@@ -16,6 +16,7 @@ public class Enemigo1 : MonoBehaviour
     private float time=0;
     public float timeWithoutDamage = 2f;
     Vector3 temp;
+    public bool stoppedFollow;
 
     private void Start()
     {
@@ -29,9 +30,15 @@ public class Enemigo1 : MonoBehaviour
         range = Vector2.Distance(transform.position, target.position);
         if (range < minDistance)
         {
+            stoppedFollow = true;
             temp = new Vector3(target.transform.position.x, transform.position.y, target.transform.position.z);
             //transform.Translate(Vector2.MoveTowards(transform.position, target.position, range)*chaseSpeed*Time.deltaTime);
             transform.position = Vector3.MoveTowards(transform.position, temp, chaseSpeed * Time.deltaTime);
+            if((transform.position.x - target.position.x) > 0){
+                transform.localScale = new Vector3(-4f,transform.localScale.y, transform.localScale.z);
+            }else{
+                transform.localScale = new Vector3(4f,transform.localScale.y, transform.localScale.z);
+            }
             if (range < attackDistance)
             {
 
@@ -48,9 +55,14 @@ public class Enemigo1 : MonoBehaviour
                 
                 
             }
+            
         }
         else
         {
+            if(stoppedFollow){
+                transform.localScale = new Vector3(transform.localScale.x * -1,transform.localScale.y, transform.localScale.z);
+                stoppedFollow = false;
+            }
             transform.position = Vector2.MoveTowards(transform.position, Origin, returnSpeed * Time.deltaTime);
         }
 
