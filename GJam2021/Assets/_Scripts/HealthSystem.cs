@@ -35,7 +35,7 @@ public class HealthSystem : MonoBehaviour
     }
     void die() {
         if (tag == "Player") {
-
+            Debug.Log("Player has died");
         }
         else
         {
@@ -45,6 +45,13 @@ public class HealthSystem : MonoBehaviour
                 Destroy(gameObject);
             }
             
+        }
+    }
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.tag == "Instakill")
+        {
+            die();
         }
     }
 }
