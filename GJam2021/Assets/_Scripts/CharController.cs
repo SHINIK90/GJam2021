@@ -66,13 +66,13 @@ public class CharController : MonoBehaviour
       
         //SISTEMA DE MOVIMIENTO
         if (Input.GetKey(KeyCode.A)){
-            body.localScale = new Vector3(-1f,body.localScale.y, body.localScale.z);
+            body.localScale = new Vector3(-3f,body.localScale.y, body.localScale.z);
             transform.position = transform.position + new Vector3(-1f * movementSpeed * Time.deltaTime, 0f, 0f);
             facingRight = false;
         }
 
         if (Input.GetKey(KeyCode.D)){
-            body.localScale = new Vector3(1f,body.localScale.y, body.localScale.z);
+            body.localScale = new Vector3(3f,body.localScale.y, body.localScale.z);
             transform.position = transform.position + new Vector3(1f * movementSpeed * Time.deltaTime, 0f, 0f);
             facingRight = true;
         }
