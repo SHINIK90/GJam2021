@@ -17,6 +17,8 @@ public class CharController : MonoBehaviour
     public Rigidbody rigidbody;
     public float jumpForce = 10f;
     public float dashForce = 10f;
+    bool dashActive = false;
+    bool dashRight = false;
     float time = 0;
     public float dashCooldown=2f;
     // Start is called before the first frame update
@@ -37,12 +39,25 @@ public class CharController : MonoBehaviour
         //Debug.Log(time);
         DashCooldownBar.fillAmount = time / dashCooldown;
         time += Time.deltaTime;
+        
         if(facingRight){facingRightValue = 1f;}else{facingRightValue = -1f;}
 
         if (Input.GetKey(KeyCode.Space) && time >= dashCooldown) {
             Debug.Log("DASH");
             rigidbody.AddForce(dashForce*facingRightValue, 0, 0, ForceMode.Impulse);
             time = 0;  
+            dashActive = true;
+            if(facingRightValue == 1){
+                dashRight = true;
+            }else{dashRight = false;}
+        }
+        if(time <= dashCooldown && dashActive){
+            //rigidbody.velocity = new Vector3(rigidbody.velocity.x,0,0);
+            if(Input.GetKey(KeyCode.A)  && dashRight|| Input.GetKey(KeyCode.D) && !dashRight){
+                rigidbody.velocity = new Vector3(0,0,0);
+                dashActive = false;
+                Debug.Log("STOP DASH");
+            }
         }
     }
     void Update()
