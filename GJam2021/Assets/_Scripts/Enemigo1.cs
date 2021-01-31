@@ -25,8 +25,6 @@ public class Enemigo1 : MonoBehaviour
     }
     void Update()
     {
-        
-        Debug.Log(time);
         range = Vector2.Distance(transform.position, target.position);
         if (range < minDistance)
         {
