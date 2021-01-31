@@ -62,8 +62,7 @@ public class CharController : MonoBehaviour
     }
     void Update()
     {
-        
-      
+
         //SISTEMA DE MOVIMIENTO
         if (Input.GetKey(KeyCode.A)){
             body.localScale = new Vector3(-1f,body.localScale.y, body.localScale.z);
@@ -79,11 +78,9 @@ public class CharController : MonoBehaviour
         
         //SISTEMA DE DISPARO
         if (Input.GetKeyDown(KeyCode.Mouse0) && Time.time > nextFire) {
-            rigidbody.AddForce(-dashForce, 0, 0, ForceMode.Impulse);
             nextFire = Time.time + fireRate;
             disparar();
         }
-        //--------
     }
     void disparar() {
         bullet = transform.position;
