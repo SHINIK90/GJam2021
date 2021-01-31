@@ -1,26 +1,29 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class CharController : MonoBehaviour
 {
     bool facingRight=true;
-    //SISTEMA DE DISPARO
     public GameObject derecha, izquierda;
     Vector2 bullet;
     public float fireRate;
     float nextFire=0;
-    //--------
-
+    public Image DashCooldownBar;
     public float movementSpeed = 20f;
     public Transform body;
     public Rigidbody rigidbody;
     public float jumpForce = 10f;
+    public float dashForce = 10f;
+    float time = 0;
+    public float dashCooldown=2f;
     // Start is called before the first frame update
     void Start(){
         body = transform.Find("Body");
         rigidbody = transform.GetComponent<Rigidbody>();
         jumpForce = 10f;
+        time = dashCooldown;
     }
 
     // Update is called once per frame
@@ -31,6 +34,10 @@ public class CharController : MonoBehaviour
     }
     void Update()
     {
+        //Debug.Log(time);
+        DashCooldownBar.fillAmount = time / dashCooldown;
+        time += Time.deltaTime;
+      
         //SISTEMA DE MOVIMIENTO
         if (Input.GetKey(KeyCode.A)){
             body.localScale = new Vector3(-1f,body.localScale.y, body.localScale.z);
@@ -43,9 +50,30 @@ public class CharController : MonoBehaviour
             transform.position = transform.position + new Vector3(1f * movementSpeed * Time.deltaTime, 0f, 0f);
             facingRight = true;
         }
-        
+        //DASH
+        if (Input.GetKey(KeyCode.Space)) {
+            if (facingRight)
+            {
+                if (time >= dashCooldown)
+                {
+                    Debug.Log("DASH");
+                    rigidbody.AddForce(dashForce, 0, 0, ForceMode.Impulse);
+                    time = 0;
+                }
+            }
+            else
+            {
+                if (time >= dashCooldown)
+                {
+                    Debug.Log("DASH");
+                    rigidbody.AddForce(-dashForce, 0, 0, ForceMode.Impulse);
+                    time = 0;
+                }
+            }
+        }
         //SISTEMA DE DISPARO
         if (Input.GetKeyDown(KeyCode.Mouse0) && Time.time > nextFire) {
+            rigidbody.AddForce(-dashForce, 0, 0, ForceMode.Impulse);
             nextFire = Time.time + fireRate;
             disparar();
         }
