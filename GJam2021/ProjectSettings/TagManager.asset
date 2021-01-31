@@ -6,10 +6,6 @@ TagManager:
   tags:
   - Bullet
   - Enemigo
-<<<<<<< HEAD
-=======
-  - Instakill
->>>>>>> parent of 4405d24... falling platform
   layers:
   - Default
   - TransparentFX

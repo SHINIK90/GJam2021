@@ -2130,7 +2130,6 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 1293350268}
   m_PrefabAsset: {fileID: 0}
-<<<<<<< HEAD
 --- !u!1 &781031247 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 8743190279114722769, guid: 83eabb62d748c48fd80b79732399f74e,
@@ -2178,8 +2177,6 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.38, y: 0.11, z: 0.2}
   m_Center: {x: 0.00000047683716, y: 0, z: 0}
-=======
->>>>>>> parent of 4405d24... falling platform
 --- !u!4 &843422613 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8743190279114722772, guid: 83eabb62d748c48fd80b79732399f74e,
@@ -6892,6 +6889,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: FallingPlatform
       objectReference: {fileID: 0}
+    - target: {fileID: 8743190279114722769, guid: 83eabb62d748c48fd80b79732399f74e,
+        type: 3}
+      propertyPath: m_TagString
+      value: FallingPlatform
+      objectReference: {fileID: 0}
     - target: {fileID: 8743190279114722772, guid: 83eabb62d748c48fd80b79732399f74e,
         type: 3}
       propertyPath: m_RootOrder
@@ -6993,7 +6995,8 @@ PrefabInstance:
       propertyPath: m_WasSpriteAssigned
       value: 1
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 8743190279114722774, guid: 83eabb62d748c48fd80b79732399f74e, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 83eabb62d748c48fd80b79732399f74e, type: 3}
 >>>>>>> parent of 25d5f9f... new udpate
 --- !u!4 &1603426766 stripped
@@ -9247,32 +9250,12 @@ MeshCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-<<<<<<< HEAD
   serializedVersion: 4
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: 10209, guid: 0000000000000000e000000000000000, type: 0}
 --- !u!23 &1038283543
 MeshRenderer:
-=======
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 00b50028193004b80841ca28db9e4f82, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  derecha: {fileID: 2013095101308822028, guid: 03fb6a5b59c624c54902344fd9d972f8, type: 3}
-  izquierda: {fileID: 7909632030815026417, guid: 3dcad82096c3e47fbbc4f298a6204968,
-    type: 3}
-  fireRate: 0.5
-  DashCooldownBar: {fileID: 675227055}
-  movementSpeed: 8
-  body: {fileID: 0}
-  rigidbody: {fileID: 0}
-  jumpForce: 50
-  dashForce: 40
-  dashCooldown: 3
---- !u!114 &1763322911
-MonoBehaviour:
->>>>>>> parent of 4405d24... falling platform
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -9316,22 +9299,10 @@ MeshFilter:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-<<<<<<< HEAD
   m_GameObject: {fileID: 1038283540}
   m_Mesh: {fileID: 10209, guid: 0000000000000000e000000000000000, type: 0}
 --- !u!1 &1088247787
 GameObject:
-=======
-  m_GameObject: {fileID: 1763322908}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 1.81, y: 3.04, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
---- !u!54 &1763322913
-Rigidbody:
->>>>>>> parent of 4405d24... falling platform
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
