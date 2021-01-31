@@ -33,9 +33,9 @@ public class Enemigo1 : MonoBehaviour
             //transform.Translate(Vector2.MoveTowards(transform.position, target.position, range)*chaseSpeed*Time.deltaTime);
             transform.position = Vector3.MoveTowards(transform.position, temp, chaseSpeed * Time.deltaTime);
             if((transform.position.x - target.position.x) > 0){
-                transform.localScale = new Vector3(-4f,transform.localScale.y, transform.localScale.z);
+                transform.localScale = new Vector3(-1.5f,transform.localScale.y, transform.localScale.z);
             }else{
-                transform.localScale = new Vector3(4f,transform.localScale.y, transform.localScale.z);
+                transform.localScale = new Vector3(1.5f,transform.localScale.y, transform.localScale.z);
             }
             if (range < attackDistance)
             {

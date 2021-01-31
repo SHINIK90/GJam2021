@@ -8,6 +8,8 @@ public class HealthSystem : MonoBehaviour
     public Image HealthBar;
     public float CurrentHealth;
     public float MaxHealth;
+    public Animator enemy1Anim;
+    float time = 0f;
 
     void Start()
     {
@@ -33,11 +35,23 @@ public class HealthSystem : MonoBehaviour
     }
     void die() {
         if (tag == "Player") {
-
+            Debug.Log("Player has died");
         }
         else
         {
-            Destroy(gameObject);
+            enemy1Anim.SetTrigger("Die");
+            time += Time.deltaTime;
+            if(time >= 1.4f){
+                Destroy(gameObject);
+            }
+            
+        }
+    }
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.tag == "Instakill")
+        {
+            die();
         }
     }
 }
